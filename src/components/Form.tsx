@@ -33,7 +33,7 @@ export default function Form() {
 
         <div className='relative'>
           <InputUseForm
-            inputName='formPhone'
+            inputName='formName'
             inputType='text'
             placeHolder='Имя'
             errors={errors}
