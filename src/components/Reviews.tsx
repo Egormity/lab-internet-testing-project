@@ -23,17 +23,18 @@ const cardsData = [
     city: 'Самара',
     text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения.',
   },
-  {
-    imagePath: '/reviews/img-1.jpg',
-    name: 'Константинов Михаил Павлович',
-    city: 'Санкт-Петербург',
-    text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы',
-  },
+
   {
     imagePath: '/reviews/img-2.png',
     name: 'Иван Иванов',
     city: 'Санкт-Петербург',
     text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы упускаем, что активно развивающиеся страны третьего мира призваны к ответу.',
+  },
+  {
+    imagePath: '/reviews/img-1.jpg',
+    name: 'Константинов Михаил Павлович',
+    city: 'Санкт-Петербург',
+    text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы',
   },
   {
     imagePath: '/reviews/img-3.png',
@@ -54,16 +55,22 @@ const cardsData = [
     text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы упускаем, что активно развивающиеся страны третьего мира призваны к ответу.',
   },
   {
+    imagePath: '/reviews/img-1.jpg',
+    name: 'Константинов Михаил Павлович',
+    city: 'Санкт-Петербург',
+    text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы',
+  },
+  {
     imagePath: '/reviews/img-3.png',
     name: 'Артем Корнилов',
     city: 'Самара',
     text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения.',
   },
   {
-    imagePath: '/reviews/img-1.jpg',
-    name: 'Константинов Михаил Павлович',
-    city: 'Санкт-Петербург',
-    text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения. В своём стремлении улучшить пользовательский опыт мы',
+    imagePath: '/reviews/img-3.png',
+    name: 'Артем Корнилов',
+    city: 'Самара',
+    text: 'Каждый из нас понимает очевидную вещь: перспективное планирование предоставляет широкие возможности для анализа существующих паттернов поведения.',
   },
   {
     imagePath: '/reviews/img-2.png',
@@ -89,6 +96,7 @@ export default function Reviews() {
       else return 2;
     })() || 2;
 
+  console.log(cardsData.slice(activeCards * itemsPerView, activeCards * itemsPerView + itemsPerView));
   return (
     <section className='margin-section-t padding-section-x max-width-page mx-auto flex flex-col items-center justify-center gap-8'>
       <Heading text='Отзывы' />
@@ -105,7 +113,7 @@ export default function Reviews() {
             .slice(activeCards * itemsPerView, activeCards * itemsPerView + itemsPerView)
             .map((card, i) => (
               <div
-                key={card.name}
+                key={card.name + i}
                 className='grid cursor-pointer grid-rows-[min-content,1fr] gap-6 rounded-lg px-6 pb-10 pt-6 shadow-2xl duration-200 hover:-translate-y-1 hover:shadow-2xl'
               >
                 <div className='flex gap-4'>
@@ -133,7 +141,7 @@ export default function Reviews() {
         </Arrow>
       </div>
       <ul className='flex gap-6 maxMd:gap-4 maxSm:gap-2'>
-        {Array.from({ length: Math.floor(cardsData.length / itemsPerView) }).map((_, i) => (
+        {Array.from({ length: Math.ceil(cardsData.length / itemsPerView) }).map((_, i) => (
           <li
             key={i}
             className={`${i === activeCards ? 'bg-primary' : 'bg-zinc-300'} h-2.5 w-2.5 cursor-pointer rounded-full`}
