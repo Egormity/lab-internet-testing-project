@@ -16,7 +16,10 @@ export default function Form() {
     <section id='form' className='padding-section-x margin-section-t max-width-page mx-auto grid gap-8'>
       <Heading text='Отправь Форму' />
 
-      <form onSubmit={handleSubmit(onSubmit)} className='max550px:grid-cols-1 grid grid-cols-2 gap-8'>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='max550px:grid-cols-1 grid grid-cols-2 gap-8 md:mx-auto md:w-[45rem]'
+      >
         <div className='relative'>
           <InputUseForm
             inputName='formPhone'
