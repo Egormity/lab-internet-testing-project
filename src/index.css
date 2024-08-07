@@ -49,13 +49,37 @@
     align-items: center;
   }
 
-  .padding-page-x {
+  .padding-section-x {
     padding-left: 1.1rem;
     padding-right: 1.1rem;
   }
 
+  .margin-section-t {
+    margin-top: 5rem;
+  }
+
   .max-width-page {
     max-width: 1216px;
+  }
+
+  .form-required {
+    animation: rollUp 200 ease-out forwards;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: theme('colors.red.500');
+  }
+
+  @keyframes rollUp {
+    from {
+      transform: translate(0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(-1.75rem);
+      opacity: 1;
+    }
   }
 
   body {
@@ -68,15 +92,15 @@
     background-size: cover;
   }
 
-  /* html {
-    @media only screen and (max-width: 900px) {
+  html {
+    /* @media only screen and (max-width: 900px) {
       font-size: 95%;
     }
 
     @media only screen and (max-width: 600px) {
       font-size: 90%;
-    }
-  } */
+    } */
+  }
 
   * :disabled {
     cursor: not-allowed;

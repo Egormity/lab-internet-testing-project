@@ -16,6 +16,7 @@ export default {
         maxMd: { max: '768px' },
         maxSm: { max: '375px' },
         maxXs: { max: '320px' },
+        max450px: { max: '450px' },
       },
     },
   },
