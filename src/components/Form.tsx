@@ -18,7 +18,7 @@ export default function Form() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='max550px:grid-cols-1 grid grid-cols-2 gap-8 md:mx-auto md:w-[45rem]'
+        className='grid grid-cols-2 gap-8 md:mx-auto md:w-[45rem] max550px:grid-cols-1'
       >
         <div className='relative'>
           <InputUseForm
@@ -27,7 +27,7 @@ export default function Form() {
             placeHolder='Имя'
             errors={errors}
             registerFunc={register}
-            registerOptions={{ required: 'Заполните поле &darr;' }}
+            registerOptions={{ required: `Пожалуйста, заполните поле ↓` }}
           />
         </div>
 
@@ -38,7 +38,7 @@ export default function Form() {
             placeHolder='Имя'
             errors={errors}
             registerFunc={register}
-            registerOptions={{ required: 'Заполните поле &darr;' }}
+            registerOptions={{ required: 'Пожалуйста, заполните поле ↓' }}
           />
         </div>
 
