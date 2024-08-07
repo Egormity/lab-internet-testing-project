@@ -27,7 +27,7 @@ export default function Form() {
             placeHolder='Имя'
             errors={errors}
             registerFunc={register}
-            registerOptions={{ required: 'Кудааа??' }}
+            registerOptions={{ required: 'Заполните поле &darr;' }}
           />
         </div>
 
@@ -38,7 +38,7 @@ export default function Form() {
             placeHolder='Имя'
             errors={errors}
             registerFunc={register}
-            registerOptions={{ required: 'Кудааа??' }}
+            registerOptions={{ required: 'Заполните поле &darr;' }}
           />
         </div>
 
