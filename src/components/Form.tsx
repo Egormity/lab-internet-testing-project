@@ -13,7 +13,7 @@ export default function Form() {
   };
 
   return (
-    <section className='padding-section-x margin-section-t max-width-page mx-auto grid gap-8'>
+    <section id='form' className='padding-section-x margin-section-t max-width-page mx-auto grid gap-8'>
       <Heading text='Отправь Форму' />
 
       <form

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useScreenSize } from '../hooks/useScreenSize';
 
@@ -11,11 +11,11 @@ export default function NavBar() {
   }, [screenWidth]);
 
   return (
-    <nav className={`${isMenuOpen ? 'bg-white' : ''} absolute left-0 top-0 z-50 w-full text-white`}>
+    <nav className={`${isMenuOpen ? 'fixed bg-white' : 'absolute'} left-0 top-0 z-50 w-full text-white`}>
       {screenWidth > 768 ? (
         <div className='max-width-page padding-section-x mx-auto flex h-[5rem] items-center justify-between gap-16'>
           <NavLogo isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          <NavLinks isMenuOpen={isMenuOpen} />
+          <NavLinks isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </div>
       ) : (
         <div
@@ -39,25 +39,38 @@ export default function NavBar() {
                   <span className='absolute left-1/2 top-1/2 h-0.5 w-full -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black' /> */}
             </div>
           </div>
-          {isMenuOpen && <NavLinks isMenuOpen={isMenuOpen} />}
+          {isMenuOpen && <NavLinks isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />}
         </div>
       )}
     </nav>
   );
 }
 
-const links = ['Как это работает', '3-й блок', 'Вопросы и ответы', 'Форма'];
-function NavLinks({ isMenuOpen }: { isMenuOpen: boolean }) {
+const links = [
+  { name: 'Как это работает', to: 'howItWorks' },
+  { name: '3-й блок', to: 'thirdBlock' },
+  { name: 'Вопросы и ответы', to: 'QAndA' },
+  { name: 'Форма', to: 'form' },
+];
+function NavLinks({
+  isMenuOpen,
+  setIsMenuOpen,
+}: {
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
     <ul className='flex gap-8 maxMd:flex-col maxMd:text-zinc-600'>
       {links.map(link => (
-        <li
-          key={link}
+        <a
+          onClick={() => setIsMenuOpen(false)}
+          href={`#${link.to}`}
+          key={link.name}
           className={`${isMenuOpen ? 'flex items-center justify-between' : ''} cursor-pointer underline-offset-4 duration-200 hover:underline`}
         >
-          <p>{link}</p>
+          <p>{link.name}</p>
           {isMenuOpen && <IoIosArrowForward className='text-2xl duration-200 hover:-translate-y-px' />}
-        </li>
+        </a>
       ))}
     </ul>
   );
@@ -69,13 +82,14 @@ type NavLogoProps = {
 };
 function NavLogo({ isMenuOpen, setIsMenuOpen }: NavLogoProps) {
   return (
-    <div
+    <a
+      href='#home'
       className={`${!isMenuOpen ? 'text-white' : 'text-black'} flex cursor-pointer gap-4`}
       onClick={() => setIsMenuOpen(false)}
     >
       <div className='relative z-[6] h-[1.5rem] w-[1.5rem] rounded-full bg-primary' />
       <div className='relative z-[5] -ml-6 h-[1.5rem] w-[1.5rem] rounded-full bg-zinc-200' />
       <h1 className='text-xl font-medium'>testLab</h1>
-    </div>
+    </a>
   );
 }

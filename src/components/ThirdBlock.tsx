@@ -1,6 +1,9 @@
 export default function ThirdBlock() {
   return (
-    <section className='padding-section-x margin-section-t max-width-page mx-auto grid grid-cols-2 gap-8 gap-y-4 maxMd:grid-cols-1'>
+    <section
+      id='thirdBlock'
+      className='padding-section-x margin-section-t max-width-page mx-auto grid grid-cols-2 gap-8 gap-y-4 maxMd:grid-cols-1'
+    >
       <div className='flex flex-col items-center justify-center gap-6 maxMd:gap-3'>
         <h1 className='text-[2rem] font-semibold leading-[2.75rem] maxMd:text-[1.25rem] maxMd:leading-[1.5rem]'>
           Круто, ты дошел до третьего блока

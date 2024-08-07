@@ -10,7 +10,7 @@ import ThirdBlock from './ThirdBlock';
 
 export default function Layout() {
   return (
-    <div className=''>
+    <div className='' id='home'>
       <NavBar />
 
       <Header />

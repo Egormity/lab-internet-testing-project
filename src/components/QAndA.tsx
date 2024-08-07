@@ -41,7 +41,7 @@ const data = [
 
 export default function QAndA() {
   return (
-    <section className='margin-section-t padding-section-x max-width-page mx-auto'>
+    <section id='QAndA' className='margin-section-t padding-section-x max-width-page mx-auto'>
       <Heading text='Вопросы и ответы' />
 
       <div className='mt-[3rem] grid gap-10 maxMd:mt-[2rem] maxSm:mt-[1.5rem] maxSm:grid-cols-1'>

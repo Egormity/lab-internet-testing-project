@@ -25,7 +25,7 @@ const cardsData = [
 
 export default function HowItWorks() {
   return (
-    <section className='max-width-page padding-section-x margin-section-t mx-auto'>
+    <section className='max-width-page padding-section-x margin-section-t mx-auto' id='howItWorks'>
       <Heading text='Как это работает' />
 
       <div className='max500px:grid-cols-1 mt-[3rem] grid grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-7 maxMd:mt-[2rem] maxSm:mt-[1.5rem]'>
