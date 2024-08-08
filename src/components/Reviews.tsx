@@ -103,7 +103,7 @@ export default function Reviews() {
 
       <div className='flex items-center justify-between gap-6'>
         <Arrow
-          disabled={activeCards > 0}
+          disabled={!(activeCards > 0)}
           onClick={() => activeCards > 0 && setActiveCards(active => active - 1)}
         >
           <IoIosArrowBack />
@@ -136,7 +136,7 @@ export default function Reviews() {
         </div>
 
         <Arrow
-          disabled={activeCards < cardsData.length / itemsPerView - 1}
+          disabled={!(activeCards < cardsData.length / itemsPerView - 1)}
           onClick={() =>
             activeCards < cardsData.length / itemsPerView - 1 && setActiveCards(active => active + 1)
           }
