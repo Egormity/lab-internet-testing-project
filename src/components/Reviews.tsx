@@ -102,7 +102,10 @@ export default function Reviews() {
       <Heading text='Отзывы' />
 
       <div className='flex items-center justify-between gap-6'>
-        <Arrow onClick={() => activeCards > 0 && setActiveCards(active => active - 1)}>
+        <Arrow
+          disabled={activeCards > 0}
+          onClick={() => activeCards > 0 && setActiveCards(active => active - 1)}
+        >
           <IoIosArrowBack />
         </Arrow>
 
@@ -133,6 +136,7 @@ export default function Reviews() {
         </div>
 
         <Arrow
+          disabled={activeCards < cardsData.length / itemsPerView - 1}
           onClick={() =>
             activeCards < cardsData.length / itemsPerView - 1 && setActiveCards(active => active + 1)
           }
@@ -156,14 +160,16 @@ export default function Reviews() {
 type ArrotProps = {
   children: ReactNode;
   onClick: () => void;
+  disabled: boolean;
 };
-function Arrow({ children, onClick }: ArrotProps) {
+function Arrow({ children, onClick, disabled }: ArrotProps) {
   return (
-    <span
-      className='max450px:hidden cursor-pointer text-5xl text-zinc-400 duration-200 hover:-translate-y-0.5 hover:text-primary'
+    <button
+      disabled={disabled}
+      className={`${disabled ? 'hover:text-zinc-300' : 'hover:text-primary'} cursor-pointer text-5xl text-zinc-400 duration-200 hover:-translate-y-0.5 max450px:hidden`}
       onClick={onClick}
     >
       {children}
-    </span>
+    </button>
   );
 }
